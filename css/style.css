@@ -1,0 +1,122 @@
+/* General Setting */
+:root{
+    /* Color */
+    --color--primary: #ffdf1a;
+    --color--secondary: #0065B3;
+    --color--accent: #f33;
+    --color--font: #000;
+    --color--font--info: #fff;
+    --color--border: #75736d;
+    /* Duration */
+    --transition--show: 0.5s;
+    --transition--color: 0.1s;
+    --transition--scale: 0.3s;
+}
+    /* Setting */
+html {
+    font-size: 62.5%;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style-type: none;
+}
+/* icon */
+.icon {
+    width: 2rem;
+    height: 3rem;
+}
+.icon__sidenav {
+    padding: 1rem;
+}
+/* Button */
+.btn__nav:hover {
+    color: var(--color--secondary);
+    fill: var(--color--secondary);
+    transform: scale(1.1);
+    transition: color var(--transition--color);
+    transition: transform var(--transition--scale);
+}
+/* Top Navigation Bar */
+    /* Function */
+.topnav{
+    font-size: 1.4rem;
+    background-color: var(--color--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+.nav__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav__item {
+    padding: 1rem;
+}
+.nav__item:first-child {
+    margin-left: 1rem;
+}
+.nav__item:last-child {
+    margin-right: 1rem;
+}
+.nav__icon {
+    margin: 1rem;
+}
+    /* Function */
+.nav__hidden {
+    display: none;
+}
+@media screen and (min-width: 768px) {
+    /* Function */
+    .nav__container .nav__hidden {
+        display: block;
+    }
+    .nav__icon--hidden {
+        display: none;
+    }
+}
+/* Side Navigation Bar */
+    /* Style */
+.sidenav--expanded {
+    font-size: 1.4rem;
+    width: 25rem;
+    height: 100%;
+    border-right: 2px solid var(--color--border);
+    position: fixed;
+    top: 7.8rem;
+}
+.sidenav__container {
+    margin: 4rem 0;
+}
+.sidenav__item {
+    display: flex;
+    align-items: center;
+}
+.sidenav__content {
+    padding-left: 1rem;
+}
+    /* Function */
+.sidenav {
+    transform: translate(-100%);
+}
+.sidenav--expanded {
+    transform: translate(0);
+    transition: var(--transition--show);
+}
+
+@media screen and (min-width: 768px) {
+    /* Function */
+    .sidenav--expanded {
+        transform: translate(-100%);
+        transition: var(--transition--show);
+    }
+}
+
