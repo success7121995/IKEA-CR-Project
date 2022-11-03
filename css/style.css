@@ -49,13 +49,19 @@ img {
     
 }
 /* Grid */
-.grid {
+.grid--1xauto {
     display: grid;
-    grid-template-columns: repeat(auto, fr);
+    grid-template-columns: repeat(auto-fit,  minmax(40%, 80%));
     justify-content: center;
     margin: 1rem;
     gap: 4rem;
     top: 0;
+}
+@media screen and (min-width: 768px){
+    .grid--2xauto {
+        grid-template-rows: repeat(2, minmax(10%, 50%));
+        grid-template-columns: repeat(2, minmax(5%, 30%));
+    }
 }
 /* Top Navigation Bar */
 .topnav{
@@ -144,7 +150,10 @@ img {
 }
 /* Side Navigation Bar */
 .sidenav {
-    display: none;
+    width: 0;
+    height: 0;
+    transform: translate(-100%);
+    overflow: hidden;
 }
 .sidenav--active {
     background-color: #fff;
@@ -155,6 +164,10 @@ img {
     border-right: 2px solid var(--color--border);
     position: fixed;
     top: 0;
+    transform: translate(0);
+    animation: slide-in var(--transition--show);
+    overflow: visible;
+    z-index: 1;
 }
 .sidenav__container {
     margin: 4rem 0;
@@ -169,6 +182,58 @@ img {
 .sidenav__content {
     padding-left: 1rem;
 }
+@keyframes slide-in {
+    0% {
+        transform: translate(-100%);
+    }
+    10% {
+        transform: translate(-90%);
+    }
+    20% {
+        transform: translate(-80%);
+    }
+    30% {
+        transform: translate(-70%);
+    }
+    40% {
+        transform: translate(-60%);
+    }
+    50% {
+        transform: translate(-50%);
+    }
+    60% {
+        transform: translate(-40%);
+    }
+    70% {
+        transform: translate(-30%);
+    }
+    80% {
+        transform: translate(-20%);
+    }
+    90% {
+        transform: translate(-10);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+@keyframes slide-out {
+    0% {
+        transform: translate(0);
+    }
+    25% {
+        transform: translate(-25%);
+    }
+    50% {
+        transform: translate(-50%);
+    }
+    75% {
+        transform: translate(-75%);
+    }
+    100% {
+        transform: translate(-100%);
+    }
+}
 @media screen and (min-width: 768px) {
     .sidenav--active {
         display: none;
@@ -176,7 +241,7 @@ img {
 }
 /* Info */
 .info {
-    top: 0;
+    margin-top: 12rem; 
 }
 .info__container {
     font-size: 1.4rem;
@@ -188,8 +253,8 @@ img {
     opacity: 0.8;
 }
 .info__img {
-    width: 40vh;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
 }
 .info__tag {
     background-color: #000;
@@ -199,4 +264,7 @@ img {
     margin: 1rem;
     position: absolute;
     bottom: 0;
+}
+@media screen and (min-width: 768px){
+    /* Grid has been set */
 }

@@ -3,7 +3,7 @@ const menu = document.getElementById('menu');
 const sidenav = document.getElementById('sidenav');
 menu.addEventListener('click', function(e) {
     sidenav.classList.toggle('sidenav--active');
-    e.preventDefault();   
+    e.preventDefault(); 
 });
 // Search
 const search = document.getElementById('icon__search');
